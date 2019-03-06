@@ -4,6 +4,7 @@ class Article {
   constructor(domElement) {
     // assign this.domElement to the passed in domElement
     this.domElement = domElement;
+    domElement.style.transition = "2s";
     // create a reference to the ".expandButton" class. 
     this.expandButton = this.domElement.querySelector(".expandButton");
     // Using your expandButton reference, update the text on your expandButton to say "expand"

@@ -74,10 +74,9 @@
   border-radius: 10px;
   background-color: white;
   position: relative;
-  height: 50px;
+  max-height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
-  transition: 2s;
 }
 .article h2 {
   font-size: 28px;
@@ -104,7 +103,6 @@
   background-color: white;
 }
 .article-open {
-  height: auto;
   max-height: 1000px;
 }
 html,
