@@ -17,6 +17,29 @@ class Article {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
     this.domElement.classList.toggle("article-open");
   }
+
+  static fromObj(obj){
+    const h2 = document.createElement("h2");
+    h2.textContent = obj.heading;
+
+    const time = document.createElement("p");
+    time.classList.add("date");
+    time.textContent = obj.date || new Date().toDateString();
+
+    const content = document.createElement("p");
+    content.textContent = obj.content;
+
+    const expand = document.createElement("span");
+    expand.classList.add("expandButton");
+    expand.textContent = "expand";
+
+    const article = document.createElement("div");
+    article.classList.add("article");
+
+    article.append(h2, time, content, expand); // so apparently this works but its not as nice as appendChild... 
+
+    return article;
+  }
 }
 
 /* START HERE: 
@@ -26,6 +49,14 @@ class Article {
 - With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles NodeList and create a new instance of Article by passing in each article as a parameter to the Article class.
 
 */
+
+const articleObj = {
+  heading: "My Super Awesome Heading",
+  content: "lorem ipsum and alluh that",
+};
+
+const articleContainer = document.querySelector(".articles");
+articleContainer.appendChild(Article.fromObj(articleObj));
 
 let articles = document.querySelectorAll(".article");
 articles.forEach(function(article){return new Article(article)});

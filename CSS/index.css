@@ -77,6 +77,7 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  transition: 2s;
 }
 .article h2 {
   font-size: 28px;
@@ -104,6 +105,7 @@
 }
 .article-open {
   height: auto;
+  max-height: 1000px;
 }
 html,
 body {
