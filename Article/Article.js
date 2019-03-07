@@ -11,11 +11,12 @@ class Article {
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.expandButton.addEventListener("click", this.expandArticle.bind(this));
 
-    // the order is important
+    // the order is important, this is to get rid of the lag when minimizing an article. 
     this.height = parseInt(window.getComputedStyle(this.domElement).height.split("p")[0]);
-    this.height += 50; 
-    this.domElement.style.maxHeight = '50px';
-    this.domElement.style.transition = "2s";
+    this.height += 50; // this guy gives us a little extra room at the bottom... maybe needs to be dynamic depending on amount of content?
+    this.domElement.style.maxHeight = '50px'; // setting the articles to start at the collapsed height
+
+    this.domElement.style.transition = "2s"; // setting this here to prevent the wonk when the page first loads
   }
 
   expandArticle() {
